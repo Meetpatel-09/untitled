@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/pages/home_page.dart';
 import 'package:untitled/pages/login_page.dart';
-
+import 'package:untitled/utils/routes.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -14,19 +14,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple
+        primarySwatch: Colors.deepPurple,
       ),
       darkTheme: ThemeData(
-         brightness: Brightness.dark,
+        brightness: Brightness.dark,
         primarySwatch: Colors.yellow,
       ),
       initialRoute: "/",
       routes: {
-        "/": (context) => LoginPage(),
-        "/login": (context) => LoginPage(),
-        "/home": (context) => HomePage(),
+        "/": (context) => const LoginPage(),
+        MyRoutes.loginRoute: (context) => const LoginPage(),
+        MyRoutes.homeRoute: (context) => const HomePage(),
       },
     );
   }
